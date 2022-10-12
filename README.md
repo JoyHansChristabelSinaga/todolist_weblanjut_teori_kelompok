@@ -1,11 +1,11 @@
 # todolist_weblanjut_teori_kelompok
 
-Project Kelompok Web Lanjut Teori
+# Project Kelompok Web Lanjut Teori
 
-To Do List merupakan sebuah web yang berguna untuk menyimpan catatan-catatan dan rangkaian kegiatan.
+# To Do List merupakan sebuah web yang berguna untuk menyimpan catatan-catatan dan rangkaian kegiatan.
 
-Anggota:
+# Anggota:
 
-Joy Hans Christabel Sinaga 2017051050
+# Joy Hans Christabel Sinaga 2017051050
 
-Putu Persada NPM
+# Putu Persada 2057051016
