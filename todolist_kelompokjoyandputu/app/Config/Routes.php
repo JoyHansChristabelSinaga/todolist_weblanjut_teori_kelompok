@@ -38,6 +38,11 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/list','TodolistControl::index');
 $routes->delete('/delete/(:num)','TodolistControl::delete/$1');
+$routes->get('/create','TodolistControl::create');
+$routes->post('/store','TodolistControl::store');
+$routes->get('/edit/(:num)','TodolistControl::edit/$1');
+$routes->post('/update/(:num)','TodolistControl::update/$1');
+
 
 /*
  * --------------------------------------------------------------------
