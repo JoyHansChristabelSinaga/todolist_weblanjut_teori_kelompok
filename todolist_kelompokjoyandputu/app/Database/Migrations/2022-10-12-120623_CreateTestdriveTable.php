@@ -15,9 +15,13 @@ class CreateTestdriveTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'iduser' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
             'kegiatan' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '10',
+                'constraint' => '100',
             ],
             'ket_waktu'=> [
                 'type' => 'VARCHAR',

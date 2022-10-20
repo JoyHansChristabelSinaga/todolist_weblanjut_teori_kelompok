@@ -42,7 +42,9 @@ $routes->get('/create','TodolistControl::create');
 $routes->post('/store','TodolistControl::store');
 $routes->get('/edit/(:num)','TodolistControl::edit/$1');
 $routes->post('/update/(:num)','TodolistControl::update/$1');
-
+$routes->get('/user','TodolistControl::user');
+//$routes->get('/choose/(:num)','TodolistControl::list2/$1');
+//$routes->get('/list2/(:num)','TodolistControl::indexuser/$1');
 
 /*
  * --------------------------------------------------------------------

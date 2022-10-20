@@ -8,20 +8,20 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Edit List!</title>
+    <title>Hello, world!</title>
   </head>
   <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="list">Web Lanjut</a>
+    <a class="navbar-brand" href="pages/list">Web Lanjut</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-        <a class="nav-link" href="/list">To Do List</a>
+          <a class="nav-link active" aria-current="page" href="/list">To Do List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/create">Add To Do List</a>
@@ -34,31 +34,35 @@
   </div>
 </nav>
 
-<div class="container">
-   <h1 class="mt-5">Edit To do List</h1>
-<form action ="/update/<?=$Todolist["id"]?>" method ="post">
-  <div class="row">
-    <div class="col-6">
-      <div class="form-group">
-        <label for="kegiatan">Kegiatan</label>
-        <input type="text" name= "kegiatan" class="form-control" id="kegiatan" value="<?=$Todolist['kegiatan'] ?>">
-      </div>
-    <div class="form-group">
-     <label for="ket_waktu">Keterangan Waktu</label>
-     <input type="text" name= "ket_waktu" class="form-control" id="ket_waktu" value="<?=$Todolist['ket_waktu'] ?>">
-    </div>
-    <div class="form-group">
-      <label for="deskripsi">Deskripsi</label>
-      <input type="text" name= "deskripsi" class="form-control" id="deskripsi" value="<?=$Todolist['deskripsi'] ?>">
-   </div>
-  </div>
-  <div class="col-6">
-  </div>
-<div>
-</div>
-  <button type="submit" class="btn btn-primary">Ubah</button>
-</form>
-</div>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Kegiatan</th>
+      <th scope="col">Keterangan Waktu</th>
+      <th scope="col">Deskripsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php $no = 1; foreach($Todolist as $list): ?>
+    <tr>
+      <th scope="row"><?= $no ?></th>
+      <td><?= $list['kegiatan']?></td>
+      <td><?= $list['ket_waktu']?></td>
+      <td><?= $list['deskripsi']?></td>
+      <td>
+        <div class="d-flex">
+          <a href="/edit/<?=$list['id']?>" class="btn btn-warning mr-3">Edit</a>
+            <form action="/delete/<?=$list['id'] ?>" method="post">
+              <input name="_method" value="DELETE" type="hidden">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+      </td>
+    </tr>
+    <?php $no++; endforeach ?>
+  </tbody>
+</table>
 
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">

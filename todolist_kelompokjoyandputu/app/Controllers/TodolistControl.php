@@ -4,13 +4,16 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Todolist;
+use App\Models\User;
+
+//$username;
 
 class TodolistControl extends BaseController
 {
     public function index()
     {
         $TodolistModel = new Todolist();
-        $Todolist = $TodolistModel->findAll();
+        $Todolist = $TodolistModel->findall();
 
         $data = [
             'title' => 'Todolist',
@@ -19,6 +22,20 @@ class TodolistControl extends BaseController
 
         return view('pages\list' , $data);
     }
+
+    // public function indexuser($username)
+    // {
+    //     $TodolistModel = new Todolist();
+    //     $Todolist = $TodolistModel->find($username);
+
+    //     $data = [
+    //         'title' => 'Todolist',
+    //         'Todolist' => $Todolist
+    //     ];
+
+    //     return view('pages\list2' , $data);
+    // }
+
     public function create(){
         $data = [
             'title' => 'Create Todolist'
@@ -29,7 +46,9 @@ class TodolistControl extends BaseController
     public function store()
     {
         $TodolistModel = new Todolist();
+
         $data=[
+            //'username' => $GLOBALS['username'],
             'kegiatan' => $this->request->getPost('kegiatan'),
             'ket_waktu'=> $this->request->getPost('ket_waktu'),
             'deskripsi'=>$this->request->getPost('deskripsi')
@@ -68,6 +87,32 @@ class TodolistControl extends BaseController
 
         $TodolistModel->update($id, $data);
         return redirect()->to('pages\list');
-
     }
+
+    public function user(){
+        
+        $UserModel = new User();
+        $User = $UserModel->findAll();
+
+        $data = [
+            'title' => 'User',
+            'User' => $User
+        ];
+
+        return view('pages\users' , $data);
+    }
+    // public function choose($username){
+        
+    //     $UserModel = new User();
+    //     $User = $UserModel->find($username);
+
+    //     $data = [
+    //         'title' => ' User',
+    //         'User' => $User
+    //     ];
+        
+    //     $GLOBALS['username'] = $data;
+
+    //     return (redirect()->to('pages\list2'));
+    // }
 }
